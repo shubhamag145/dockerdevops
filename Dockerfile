@@ -1,13 +1,13 @@
 FROM centos:latest
 MAINTAINER shubhamag145@gmail.com
-RUN yum install httpd -y \
+RUN yum install -y httpd \
   zip \
- unzip
-ADD https://www.free-css.com/assets/files/free-css-templates/download/page268/zuchristmas.zip /var/www/html
+ unzip 
+ADD https://www.free-css.com/assets/files/free-css-templates/download/page269/meticulous.zip
 WORKDIR /var/www/html
-RUN unzip zuchristmas.zip
-RUN cp -rvf zuchristmas-1.0.0/* .
-ENTRYPOINT ["/usr/sbin/httpd"]
-CMD ["-D", "FOREGROUND"]
+RUN unzip meticulous.zip
+RUN cp -rvf meticulous/* .
+RUN rm -rf meticulous meticulous.zip 
+CMD ["/usr/sbin/httpd", "-D",  "FOREGROUND"]
 EXPOSE 80
 
