@@ -7,5 +7,7 @@ ADD https://www.free-css.com/assets/files/free-css-templates/download/page268/zu
 WORKDIR /var/www/html
 RUN unzip zuchristmas.zip
 RUN cp -rvf zuchristmas-1.0.0/* .
-CMD ["/usr/sbin/httpd","-D", "FOREGROUND"]
+ENTRYPOINT ["/usr/sbin/httpd"]
+CMD ["-D", "FOREGROUND"]
 EXPOSE 80
+
